@@ -19,7 +19,7 @@ def cov_to_inf(X, domain):
     B = np.zeros((domain, domain))
 
     # Initialize first row
-    B[0, 0] = 0
+    B[0, 0] = 0  
     V[0] = X[0, 0]
 
     if V[0] == 0 or V[0] == np.inf:
