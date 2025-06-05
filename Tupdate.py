@@ -43,7 +43,6 @@ def tupdate(u, B, V, Phi, gamma, Qk):
         [Onr, B, Phi.T],
         [Onr, On, On]
     ])
-    #this works
 
 
     
@@ -51,34 +50,15 @@ def tupdate(u, B, V, Phi, gamma, Qk):
     n0 = 0
     n1 = r
     n2 = n+n
-    #n3 = 0
 
-    '''print('mibomba')
-    print(B_new)
-    print(V_new)
-    print(n0)
-    print(n1)
-    print(n2)'''
-
-    #this part works
     B_temp, V_temp = removal(B_new, V_new, n0, n1, n2)
-
-    print('mibomba')
-    print(V_temp)
-    print(B_temp)
 
     n0 = r
     n1 = n
     n2 = n
-    print('hibomba')
-    print(r)
-    print(n)
 
     V_temp = V_temp.flatten()
     B, V = removal(B_temp, V_temp, n0, n1, n2)
-    print('dibomba')
-    print(B)
-    print(V)
 
 
     # Update V and B for the current step
@@ -91,30 +71,4 @@ def tupdate(u, B, V, Phi, gamma, Qk):
     u = u_new
 
     return u, B, V
-
-# Initial setup
-u = np.array([[0.0101], [0.1188]])
-X = np.array([[0.00516961, 0.008445032],
-              [0.008445032, 2.02692169]])
-Phi = np.array([[1.0191, 0.0099],
-                 [-0.2474, 0.9994]])
-gamma = np.array([[1, 0],
-                  [0, 1]])
-Qk = np.array([[0.002, 0.002],
-                [0.002, 0.438]])
-
-n = X.shape[0]
-
-# Function calls
-B, V, P = cov_to_inf(X, 2)
-u, B, V = tupdate(u, B, V, Phi, gamma, Qk)
-X = inf_to_cov(V, B, n)
-
-# Display the results with high precision
-np.set_printoptions(precision=10)
-print("Updated u:", u)
-print("B:", B)
-print("V:", V)
-print("X:", X)
-
 
