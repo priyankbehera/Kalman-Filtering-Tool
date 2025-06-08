@@ -55,3 +55,4 @@ class InfluenceDiagramKalman:
     def run_filter_step(self, z=None):
         self.update(z)
         self.predict()
+        
