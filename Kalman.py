@@ -3,12 +3,11 @@ from INFtoCOV import inf_to_cov
 from Mupdate import mupdate
 from Tupdate import tupdate
 
-def kalman(k, Z, u, X, V, R, H, Phi, gamma, Qk, Form, h=None):
+def kalman(Z, u, X, V, R, H, Phi, gamma, Qk, Form, h=None):
     """
     Apply Kalman filter at time k.
 
     Parameters:
-    k (int): Desired discrete time.
     Z (numpy.ndarray): Measurement valudeaces at discrete time k.
     u (numpy.ndarray): An n x 1 vector representing the mean of the state at time k.
     X (numpy.ndarray): If k=0, the covariance matrix of state at time k. If k≠0, the matrix of Gaussian influence diagram arc coefficients.
