@@ -44,9 +44,8 @@ def mupdate(k, Z, u, B_or_sigma, V, R, H, h=None):
         u_new = np.vstack((u, h))
 
 
-    # Construct V_new to match MATLAB structure
+    # Construct V_new to structure
     V_new = np.vstack((V, np.diag(R).reshape(-1, 1)))
-    #print('V_new\n', V_new)
 
 
     # Build the B_new matrix
