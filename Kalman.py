@@ -28,7 +28,6 @@ def kalman(k, Z, u, X, V, R, H, Phi, gamma, Qk, Form, h=None):
 
     # Get dimensions
     domain = X.shape[0]
-    p = Z.shape[0]
     
     # Perform measurement update
     u, V, B = mupdate(k, Z, u, X, V, R, H, h)
